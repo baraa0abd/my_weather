@@ -1,0 +1,44 @@
+package com.example.weathertask.UiScreens.BaseBackground
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun BaseBackground() {
+    Box(
+        modifier = Modifier
+            .width(360.dp)
+            .height(800.dp)
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(Color(0xFF87CEFA), Color.White),
+                    startY = 0f,
+                    endY = Float.POSITIVE_INFINITY
+                ),
+                shape = RoundedCornerShape(20.dp)
+            )
+    ) {
+        // Position the location at a reasonable spot
+        Box(modifier = Modifier
+            .padding(top = 50.dp, start = 20.dp)) {
+            location()
+        }
+    }
+}
+
+@Preview
+@Composable
+fun BaseBackgroundPreview() {
+    BaseBackground()
+}
