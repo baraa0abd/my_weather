@@ -32,14 +32,18 @@ import com.example.weathertask.model.HourlyForecastInfo
 
 @Composable
 fun WeatherDetails() {
-    // This Column is the main container, as specified by "Flow: Vertical"
     Column(
         modifier = Modifier
             .width(388.dp) // "Width: Fixed (388px)"
             .wrapContentHeight(), // "Height: Hug (428px)"
         verticalArrangement = Arrangement.spacedBy(24.dp) // "Gap: 24px"
     ) {
-        WeatherMetricsGrid()
         TodayForecast()
     }
+}
+
+@Preview(showSystemUi = true )
+@Composable
+fun WeatherDetailsPreview(){
+    WeatherDetails()
 }

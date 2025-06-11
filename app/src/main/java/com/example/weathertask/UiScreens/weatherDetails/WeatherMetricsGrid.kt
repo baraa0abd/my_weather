@@ -1,38 +1,31 @@
 package com.example.weathertask.UiScreens.weatherDetails
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import com.example.weathertask.model.WeatherMetricInfo
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.items // <-- Important: You might need to add this import
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.weathertask.R
-import com.example.weathertask.model.HourlyForecastInfo
+
+data class WeatherMetricInfo(
+    val icon: Painter,
+    val value: String,
+    val label: String
+)
 
 @Composable
 fun WeatherMetricsGrid() {
@@ -46,11 +39,62 @@ fun WeatherMetricsGrid() {
         WeatherMetricInfo(painterResource(id = R.drawable.img_6), "22°C", "Feels like")
     )
 
-    // LazyVerticalGrid is the best way to create a grid in Compose
     LazyVerticalGrid(
-        columns = GridCells.Fixed(3), // 3 columns
-        verticalArrangement = Arrangement.spacedBy(16.dp), // Vertical spacing between items
-        horizontalArrangement = Arrangement.spacedBy(16.dp), // Horizontal spacing
+        columns = GridCells.Fixed(3),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
     ) {
+        // ERROR WAS HERE: You must use the items() function to provide the list
+        items(weatherMetrics) { metric ->
+            // For each 'metric' in the list, display this composable
+            WeatherDetailItem(metric = metric)
+        }
+    }
+}
+
+/**
+ * A composable to display a single weather metric item.
+ */
+@Composable
+fun WeatherDetailItem(metric: WeatherMetricInfo) {
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(16.dp))
+            .background(Color.White)
+            .padding(vertical = 16.dp)
+            .fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Icon(
+                painter = metric.icon,
+                contentDescription = metric.label,
+                tint = Color(0xFF30A2FF),
+                modifier = Modifier.size(24.dp)
+            )
+            Text(
+                text = metric.value,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = Color.Black
+            )
+            Text(
+                text = metric.label,
+                fontSize = 14.sp,
+                color = Color.Gray
+            )
+        }
+    }
+}
+
+
+@Preview(showBackground = true, backgroundColor = 0xFFF0F5F9)
+@Composable
+fun WeatherMetricsGridPreview() {
+    Box(modifier = Modifier.padding(16.dp)) {
+        WeatherMetricsGrid()
     }
 }

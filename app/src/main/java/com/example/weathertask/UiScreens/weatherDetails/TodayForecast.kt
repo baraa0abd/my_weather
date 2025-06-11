@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,28 +31,40 @@ import com.example.weathertask.model.HourlyForecastInfo
 
 @Composable
 fun TodayForecast() {
-    // Dummy data for the hourly forecast
-    val hourlyForecasts = listOf(
-        HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "11:00"),
-        HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "12:00"),
-        HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "01:00"),
-        HourlyForecastInfo(painterResource(id = R.drawable.cloud), "25°C", "02:00")
-    )
-
-    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        Text(
-            text = "Today",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
+    Column(
+        modifier = Modifier
+            .size(388.dp,428.dp)
+            .offset(12.dp, 479.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp)
+    ){
+        val hourlyForecasts = listOf(
+            HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "11:00"),
+            HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "12:00"),
+            HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "01:00"),
+            HourlyForecastInfo(painterResource(id = R.drawable.cloud), "25°C", "02:00")
         )
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            hourlyForecasts.forEach { forecast ->
-                HourlyForecastItem(forecast = forecast)
+
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            WeatherMetricsGrid()
+            Text(
+                text = "Today",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                hourlyForecasts.forEach { forecast ->
+                    HourlyForecastItem(forecast = forecast)
+                }
             }
         }
     }
+}
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun TodayForecastPreview() {
+    TodayForecast()
 }
