@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weathertask.UiScreens.degreeText.WeatherDisplay
+import com.example.weathertask.UiScreens.weatherDetails.WeatherDetails
 
 @Composable
 fun BaseBackground() {
@@ -32,6 +33,8 @@ fun BaseBackground() {
             BaseSun()
             baseCloude()
             WeatherDisplay()
+            WeatherDetails()
+
         }
     }
 }
