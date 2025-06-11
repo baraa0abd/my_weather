@@ -2,6 +2,7 @@ package com.example.weathertask.UiScreens.BaseBackground
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,8 +19,7 @@ import androidx.compose.ui.unit.dp
 fun BaseBackground() {
     Box(
         modifier = Modifier
-            .width(360.dp)
-            .height(800.dp)
+            .fillMaxSize()
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(Color(0xFF87CEFA), Color.White),
