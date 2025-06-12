@@ -40,7 +40,7 @@ fun HourlyForecastItem(forecast: HourlyForecastInfo) {
         Box(
             modifier = Modifier
                 .size(64.dp,58.dp)
-                .offset(-12.dp,12.dp)
+                .offset(y=-12.dp)
         ){
             Icon(
                 painter = forecast.icon,
