@@ -30,16 +30,12 @@ fun WeeklyForecastList() {
         DailyForecast("Saturday", R.drawable.sun, 32, 20),
         DailyForecast("Sunday", R.drawable.cloud, 32, 20)
     )
-
-    // The main container for the weekly forecast
     Box(
         modifier = Modifier
             .width(336.dp) // Layout: Width
             .wrapContentHeight() // Layout: Height Hug
     ) {
-        LazyColumn(
-            // Use a combination of clip, background, and border modifiers
-            // to achieve the desired effect.
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(24.dp)) // Layout: Radius
@@ -48,13 +44,11 @@ fun WeeklyForecastList() {
                     width = 1.dp, // Borders: 1px
                     color = Color(0xFF060414).copy(alpha = 0.08f), // Borders: #060414 8%
                     shape = RoundedCornerShape(24.dp) // Layout: Radius
-                ),
-            // Layout: Padding Top 4px, Bottom 4px
-            contentPadding = PaddingValues(vertical = 4.dp),
-            // Layout: Gap 10px
+                )
+                .padding(vertical = 4.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            items(forecasts) { forecast ->
+            forecasts.forEach { forecast ->
                 DailyForecastItem(forecast = forecast)
             }
         }

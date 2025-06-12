@@ -44,17 +44,6 @@ fun BaseBackground() {
         ) {
             Spacer(modifier = Modifier.height(32.dp))
             UpperAni()
-//
-//            location() // Corrected function name
-//            Spacer(modifier = Modifier.height(16.dp))
-//
-//            BaseSun()
-//            baseCloude() // Corrected function name
-//            Spacer(modifier = Modifier.height(16.dp))
-//
-//            WeatherDisplay()
-//            Spacer(modifier = Modifier.height(32.dp))
-
             TodayForecast()
             Spacer(modifier = Modifier.height(32.dp))
         }
