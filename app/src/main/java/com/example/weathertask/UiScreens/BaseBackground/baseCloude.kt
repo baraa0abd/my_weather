@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weathertask.R
+import com.example.weathertask.UiScreens.degreeText.WeatherDisplay
 
 @Composable
 fun baseCloude(){
@@ -26,4 +28,24 @@ fun baseCloude(){
             contentDescription = "Cloud",
         )
     }
+}
+
+@Composable
+fun UpperAni(){
+    Box(
+        modifier = Modifier
+            .size(165.34.dp,235.36.dp)
+            .offset(-80.dp,-34.59.dp)
+
+    ){
+        location()
+        BaseSun()
+        baseCloude()
+        WeatherDisplay()
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun BaseBackgroundPreview() {
+    BaseBackground()
 }

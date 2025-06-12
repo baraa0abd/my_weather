@@ -24,7 +24,6 @@ import com.example.weathertask.R
 fun BaseSun() {
     Box(
         modifier = Modifier
-            .verticalScroll(rememberScrollState())
             .size(165.34.dp,235.36.dp)
             .offset(82.29.dp,134.59.dp)
             .border(1.dp, Color.Transparent, shape = CircleShape)
