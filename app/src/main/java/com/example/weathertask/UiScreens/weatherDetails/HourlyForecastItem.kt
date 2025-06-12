@@ -40,6 +40,7 @@ fun HourlyForecastItem(forecast: HourlyForecastInfo) {
         Box(
             modifier = Modifier
                 .size(64.dp,58.dp)
+                .offset(-12.dp,12.dp)
         ){
             Icon(
                 painter = forecast.icon,
@@ -50,8 +51,9 @@ fun HourlyForecastItem(forecast: HourlyForecastInfo) {
         }
         Column(
             modifier = Modifier
+                .offset(23.dp,8.dp)
                 .size(36.dp,42.dp)
-,            verticalArrangement = Arrangement.spacedBy(4.dp)
+,            verticalArrangement = Arrangement.spacedBy(1.dp)
         ){
             Text(text = forecast.temperature, fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Black)
             Text(text = forecast.time, fontSize = 14.sp, color = Color.Gray)

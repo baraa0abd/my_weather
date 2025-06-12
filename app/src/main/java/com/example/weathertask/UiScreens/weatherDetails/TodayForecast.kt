@@ -23,7 +23,7 @@ fun TodayForecast() {
     Column(
         modifier = Modifier
             .size(388.dp,923.dp)
-            .offset(12.dp, 215.dp),
+            .offset(8.dp, 215.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ){
         val hourlyForecasts = listOf(
@@ -32,6 +32,10 @@ fun TodayForecast() {
             HourlyForecastInfo(painterResource(id = R.drawable.sun), "25°C", "01:00"),
             HourlyForecastInfo(painterResource(id = R.drawable.cloud), "25°C", "02:00")
         )
+//        width: 88;
+//        height: 120;
+//        border-radius: 20px;
+//        border-width: 1px;
 
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             WeatherMetricsGrid()

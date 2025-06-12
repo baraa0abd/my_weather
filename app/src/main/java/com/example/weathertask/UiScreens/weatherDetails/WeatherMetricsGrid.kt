@@ -41,20 +41,14 @@ fun WeatherMetricsGrid() {
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        // ERROR WAS HERE: You must use the items() function to provide the list
         items(weatherMetrics) { metric ->
-            // For each 'metric' in the list, display this composable
             WeatherDetailItem(metric = metric)
         }
     }
 }
-
-/**
- * A composable to display a single weather metric item.
- */
 @Composable
 fun WeatherDetailItem(metric: WeatherMetricInfo) {
     Box(
