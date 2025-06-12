@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,13 +30,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.weathertask.R
+import com.example.weathertask.UiScreens.lowerScreens.UpComingDays
 import com.example.weathertask.model.HourlyForecastInfo
 
 @Composable
 fun TodayForecast() {
     Column(
         modifier = Modifier
-            .size(388.dp,428.dp)
+            .size(388.dp,923.dp)
             .offset(12.dp, 479.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ){
@@ -52,15 +56,16 @@ fun TodayForecast() {
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
             )
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+            LazyRow(
+                modifier = Modifier.size(388.dp, 120.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                hourlyForecasts.forEach { forecast ->
+                items(hourlyForecasts) { forecast ->
                     HourlyForecastItem(forecast = forecast)
                 }
             }
         }
+        UpComingDays()
     }
 }
 @Preview(showBackground = true, showSystemUi = true)

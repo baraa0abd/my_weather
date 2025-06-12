@@ -1,6 +1,7 @@
 package com.example.weathertask.UiScreens.weatherDetails
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,16 +32,29 @@ import com.example.weathertask.model.HourlyForecastInfo
 @Composable
 fun HourlyForecastItem(forecast: HourlyForecastInfo) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        modifier = Modifier
+            .size(88.dp,120.dp)
+            .border(1.dp, Color.LightGray, shape = RoundedCornerShape(20.dp))
+            .background(Color(0x06041414))
     ) {
-        Icon(
-            painter = forecast.icon,
-            contentDescription = null,
-            modifier = Modifier.size(32.dp),
-            tint = Color.Unspecified // Use original colors of the drawable
-        )
-        Text(text = forecast.temperature, fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Black)
-        Text(text = forecast.time, fontSize = 14.sp, color = Color.Gray)
+        Box(
+            modifier = Modifier
+                .size(64.dp,58.dp)
+        ){
+            Icon(
+                painter = forecast.icon,
+                contentDescription = null,
+                modifier = Modifier.size(32.dp),
+                tint = Color.Unspecified // Use original colors of the drawable
+            )
+        }
+        Column(
+            modifier = Modifier
+                .size(36.dp,42.dp)
+,            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ){
+            Text(text = forecast.temperature, fontWeight = FontWeight.SemiBold, fontSize = 16.sp, color = Color.Black)
+            Text(text = forecast.time, fontSize = 14.sp, color = Color.Gray)
+        }
     }
 }

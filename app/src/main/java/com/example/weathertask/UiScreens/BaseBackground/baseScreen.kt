@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.weathertask.UiScreens.degreeText.WeatherDisplay
+import com.example.weathertask.UiScreens.lowerScreens.UpComingDays
 import com.example.weathertask.UiScreens.weatherDetails.WeatherDetails
 
 @Composable
@@ -27,15 +28,11 @@ fun BaseBackground() {
                 shape = RoundedCornerShape(20.dp)
             )
     ) {
-        // Position the location at a reasonable spot
-        Box() {
-            location()
-            BaseSun()
-            baseCloude()
-            WeatherDisplay()
-            WeatherDetails()
-
-        }
+        location()
+        BaseSun()
+        baseCloude()
+        WeatherDisplay()
+        WeatherDetails()
     }
 }
 
