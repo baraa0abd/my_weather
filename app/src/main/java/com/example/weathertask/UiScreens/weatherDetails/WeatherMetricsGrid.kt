@@ -53,6 +53,7 @@ fun WeatherMetricsGrid() {
 fun WeatherDetailItem(metric: WeatherMetricInfo) {
     Box(
         modifier = Modifier
+            .offset(x=-8.dp)
             .clip(RoundedCornerShape(16.dp))
             .background(Color.White)
             .padding(vertical = 16.dp)
@@ -85,7 +86,7 @@ fun WeatherDetailItem(metric: WeatherMetricInfo) {
 }
 
 
-@Preview(showBackground = true, backgroundColor = 0xFFF0F5F9)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun WeatherMetricsGridPreview() {
     Box(modifier = Modifier.padding(16.dp)) {
