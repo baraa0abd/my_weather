@@ -9,12 +9,22 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
+val DarkBackground = Color(0xFF10111A)
+val DarkCard = Color(0x33FFFFFF)
+val PurpleAccent = Color(0xFF9370DB)
+val LightText = Color(0xFFFFFFFF)
+
+// Now use them here in Theme.kt
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = PurpleAccent,
+    background = DarkBackground,
+    surface = DarkCard,
+    onBackground = LightText,
+    onSurface = LightText,
+    onPrimary = LightText
 )
 
 private val LightColorScheme = lightColorScheme(
