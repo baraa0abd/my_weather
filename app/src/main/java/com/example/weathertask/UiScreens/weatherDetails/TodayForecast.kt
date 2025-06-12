@@ -67,8 +67,9 @@ fun TodayForecast() {
                     HourlyForecastItem(forecast = forecast)
                 }
             }
+            UpComingDays()
         }
-        UpComingDays()
+
     }
 }
 @Preview(showBackground = true, showSystemUi = true)
