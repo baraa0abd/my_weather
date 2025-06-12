@@ -27,7 +27,7 @@ import com.example.weathertask.UiScreens.weatherDetails.TodayForecast
 fun BaseBackground() {
     Box(
         modifier = Modifier
-            .size(395.dp,1000.dp)
+            .fillMaxSize()
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(Color(0xFF87CEFA), Color.White),
