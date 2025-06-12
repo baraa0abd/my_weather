@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.weathertask.R
 
-// This is the main component you were working on
 @Composable
 fun WeatherDisplay() {
     Box(
@@ -56,8 +55,6 @@ fun WeatherDisplay() {
                 letterSpacing = 0.15.sp,
                 modifier = Modifier.padding(bottom = 8.dp) // Added some space
             )
-
-            // The corrected component is called here
             HighLowTempDisplay()
         }
     }
