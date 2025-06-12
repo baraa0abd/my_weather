@@ -17,7 +17,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,6 +39,7 @@ import com.example.weathertask.model.HourlyForecastInfo
 fun TodayForecast() {
     Column(
         modifier = Modifier
+            .verticalScroll(rememberScrollState())
             .size(388.dp,923.dp)
             .offset(12.dp, 479.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
